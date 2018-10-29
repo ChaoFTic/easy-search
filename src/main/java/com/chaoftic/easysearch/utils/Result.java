@@ -3,7 +3,7 @@ package com.chaoftic.easysearch.utils;
 @SuppressWarnings("unchecked")
 public class Result<T> {
 
-    public static Integer SUCCESS = 200;
+    private static Integer SUCCESS = 200;
     public static Integer FAIL = 400;//失败
     public static Integer UNAUTHORIZED = 403;//未认证（签名错误）
     public static Integer NOT_FOUND = 404;//接口不存在
@@ -41,5 +41,17 @@ public class Result<T> {
     public Result setData(T data) {
         this.data = data;
         return this;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public T getData() {
+        return data;
     }
 }

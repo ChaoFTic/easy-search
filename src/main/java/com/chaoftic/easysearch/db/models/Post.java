@@ -1,7 +1,5 @@
 package com.chaoftic.easysearch.db.models;
 
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
-
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.Objects;

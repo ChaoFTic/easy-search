@@ -21,7 +21,6 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
-import java.util.logging.SimpleFormatter;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -48,12 +47,12 @@ public class EasySearchApplicationTests {
 
             String docName = document.getName();
             String realName = docName.substring(docName.lastIndexOf('/')+1);
-            String[] splited = realName.split("\\.");
-            int id = Integer.parseInt(splited[0]);
-            String gender = splited[1];
-            int age = Integer.parseInt(splited[2]);
-            String industry = splited[3];
-            String astrological_sign = splited[4];
+            String[] split = realName.split("\\.");
+            int id = Integer.parseInt(split[0]);
+            String gender = split[1];
+            int age = Integer.parseInt(split[2]);
+            String industry = split[3];
+            String astrological_sign = split[4];
             Blogger blogger = new Blogger();
             blogger.setId(id);
             blogger.setAge(age);

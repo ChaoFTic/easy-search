@@ -17,7 +17,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         GsonHttpMessageConverter converter = new GsonHttpMessageConverter();
-        Gson gson = new GsonBuilder().serializeNulls().disableInnerClassSerialization().setDateFormat("dd-MM-yyyy").create();
+        Gson gson = new GsonBuilder().serializeNulls().setDateFormat("dd-MM-yyyy").create();
         converter.setGson(gson);
 //        FastJsonConfig config = new FastJsonConfig();
 //        config.setSerializerFeatures(SerializerFeature.WriteMapNullValue);//保留空的字段

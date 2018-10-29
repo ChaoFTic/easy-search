@@ -1,9 +1,12 @@
 package com.chaoftic.easysearch.index.document;
 
+import com.chaoftic.easysearch.index.Segment;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class Document {
+    Segment segment = new Segment();
     /**
      * 文档id
      */
@@ -43,6 +46,9 @@ public class Document {
         updateVectorLength();
     }
 
+    /**
+     * 更新文档向量的数组长度
+     */
     private void updateVectorLength() {
         double length = 0.0;
         Map<String, Integer> vector = getVector();
@@ -69,7 +75,7 @@ public class Document {
         this.termsMap = termsMap;
     }
 
-    public Double getVectorLenth() {
+    public Double getVectorLength() {
         return vectorLength;
     }
 

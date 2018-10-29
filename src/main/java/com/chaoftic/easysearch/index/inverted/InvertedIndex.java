@@ -40,8 +40,8 @@ public class InvertedIndex {
 
     // overwrite toString expect to beautify json format
     // debug
-    @Override
-    public String toString() {
-        return index.toString();
-    }
+//    @Override
+//    public String toString() {
+//        return index.toString();
+//    }
 }
