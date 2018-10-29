@@ -69,7 +69,7 @@ public class EasySearchApplicationTests {
                 String dateValue = date.getTextTrim();
                 String contentValue = content.getTextTrim();
                 Post post = new Post();
-                post.setBloggerByBloggerId(blogger);
+                post.setBlogger(blogger);
                 post.setContent(contentValue);
                 SimpleDateFormat formatter = new SimpleDateFormat("dd,MMM,yyyy", Locale.ENGLISH);
                 long timestamp = formatter.parse(dateValue).getTime();

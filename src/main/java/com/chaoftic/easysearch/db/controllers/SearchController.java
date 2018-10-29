@@ -4,14 +4,12 @@ import com.chaoftic.easysearch.db.models.BaseEntity;
 import com.chaoftic.easysearch.db.services.IndexService;
 import com.chaoftic.easysearch.utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("search")
 public class SearchController {
     private final IndexService indexService;

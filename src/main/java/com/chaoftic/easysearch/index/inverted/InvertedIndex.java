@@ -13,17 +13,18 @@ public class InvertedIndex {
 
     /**
      * 主要功能：把原来按照文档分开的 DocItem 按照 word 重新组合 生成InvertedIndex
+     *
      * @param documents Set<Document>
      */
     public void create(Set<Document> documents) {
         Map<String, IndexTerm> newIndex = new HashMap<>();
 
-        for(Document document: documents) {
+        for (Document document : documents) {
 
             Map<String, DocItem> termsMap = document.getTermsMap();
-            for (Map.Entry<String, DocItem> itemEntry: termsMap.entrySet()) {
+            for (Map.Entry<String, DocItem> itemEntry : termsMap.entrySet()) {
 
-                if(newIndex.containsKey(itemEntry.getKey())) {
+                if (newIndex.containsKey(itemEntry.getKey())) {
                     newIndex.get(itemEntry.getKey()).append(itemEntry.getValue());
                 } else {
                     newIndex.put(itemEntry.getKey(), new IndexTerm(itemEntry.getValue()));
@@ -34,8 +35,15 @@ public class InvertedIndex {
     }
 
     // getter & setter
-    public Map<String, IndexTerm> getIndex() {
-        return index;
+    public List<Map<String, Object>> getIndex() {
+        List<Map<String, Object>> result = new LinkedList<>();
+        for (Map.Entry<String, IndexTerm> entry : index.entrySet()) {
+            Map<String, Object> tmp = new HashMap<>();
+            tmp.put("word", entry.getKey());
+            tmp.put("docList", entry.getValue().getDocList());
+            result.add(tmp);
+        }
+        return result;
     }
 
     // overwrite toString expect to beautify json format

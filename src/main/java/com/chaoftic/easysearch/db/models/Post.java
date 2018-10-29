@@ -9,7 +9,7 @@ public class Post extends BaseEntity {
     private int id;
     private Date date;
     private String content;
-    private Blogger bloggerByBloggerId;
+    private Blogger blogger;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -58,11 +58,11 @@ public class Post extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "blogger_id", referencedColumnName = "id")
-    public Blogger getBloggerByBloggerId() {
-        return bloggerByBloggerId;
+    public Blogger getBlogger() {
+        return blogger;
     }
 
-    public void setBloggerByBloggerId(Blogger bloggerByBloggerId) {
-        this.bloggerByBloggerId = bloggerByBloggerId;
+    public void setBlogger(Blogger blogger) {
+        this.blogger = blogger;
     }
 }
