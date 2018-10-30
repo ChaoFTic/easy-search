@@ -2,6 +2,7 @@ package com.chaoftic.easysearch.db.services.impl;
 
 import com.chaoftic.easysearch.db.dao.PostDao;
 import com.chaoftic.easysearch.db.models.BaseEntity;
+import com.chaoftic.easysearch.db.models.Post;
 import com.chaoftic.easysearch.db.services.IndexService;
 import com.chaoftic.easysearch.index.IndexEngine;
 import com.chaoftic.easysearch.index.Segment;
@@ -30,6 +31,11 @@ public class IndexServiceImpl implements IndexService {
     @Override
     public List<BaseEntity> vectorSearch(String query, Integer k) {
         Set<Integer> docList;
+        if (indexEngine.getDocuments() == null || indexEngine.getDocuments().size() <= 0) {
+            LinkedList<BaseEntity> entities = new LinkedList<>(postDao.findAll());
+            Set<Document> documents = segment.enCut(entities);
+            indexEngine.setDocuments(documents);
+        }
         try {
             docList = indexEngine.vectorSearch(query, k);
         } catch (IOException e) {
